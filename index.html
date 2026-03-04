@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>· 绿 色 公 告 ·</title>
+  <style>
+    /* 极简重置 + 高级绿色基调 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: #ecf3e9;
+      background-image: radial-gradient(#bdd0bb 0.6px, transparent 0.6px);
+      background-size: 24px 24px;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      color: #1d2f1d;
+    }
+
+    /* 主卡片 —— 半透明磨砂质感 */
+    .card {
+      max-width: 640px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      border-radius: 36px;
+      padding: 3.2rem 2.8rem 2.8rem 2.8rem;
+      box-shadow: 0 20px 40px -18px rgba(40, 65, 40, 0.35),
+                  inset 0 0 0 1px rgba(160, 190, 150, 0.25);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 24px 48px -20px rgba(40, 75, 40, 0.45),
+                  inset 0 0 0 1px rgba(140, 180, 130, 0.3);
+    }
+
+    /* 状态行通用样式（两行共用） */
+    .status-line {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      color: #3e5f3e;
+    }
+
+    /* 第一行指示灯微调 */
+    .status-line:first-of-type {
+      margin-bottom: 0.5rem;  /* 与第二行贴近 */
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #46834b;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #8bb58b;
+      animation: breathe 2.4s infinite ease-in-out;
+    }
+
+    @keyframes breathe {
+      0% { opacity: 0.9; transform: scale(1); box-shadow: 0 0 4px #6f9e6f; }
+      50% { opacity: 1; transform: scale(1.12); box-shadow: 0 0 14px #7fb07f; }
+      100% { opacity: 0.9; transform: scale(1); box-shadow: 0 0 4px #6f9e6f; }
+    }
+
+    /* 主域名 —— 非常干净 */
+    .domain-name {
+      font-size: clamp(2.2rem, 8vw, 3.6rem);
+      font-weight: 280;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      word-break: break-word;
+      color: #1f3a1f;
+      margin: 0.8rem 0 0.8rem 0;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* 分隔线 */
+    .separator {
+      width: 64px;
+      height: 1.5px;
+      background: #b7cfb2;
+      border: 0;
+      margin: 1.6rem auto 1.8rem 0;
+    }
+
+    /* 公告区块 */
+    .notice-block {
+      margin: 2rem 0 2.2rem 0;
+      border-left: 3px solid #779f77;
+      padding-left: 1.4rem;
+    }
+
+    .notice-head {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #507550;
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    .notice-text {
+      font-size: 1.18rem;
+      line-height: 1.65;
+      color: #1e311e;
+      font-weight: 350;
+      max-width: 480px;
+    }
+
+    .notice-sub {
+      font-size: 0.98rem;
+      color: #5b765b;
+      margin-top: 0.8rem;
+      font-style: italic;
+      font-weight: 300;
+      border-top: 1px dashed #c2d6c2;
+      padding-top: 0.8rem;
+    }
+
+    /* 底部元信息 */
+    .meta-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 2.2rem;
+      margin-top: 2.4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #d3e2d3;
+      font-size: 0.85rem;
+      color: #557255;
+      letter-spacing: 0.2px;
+      justify-content: flex-start;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .meta-item::before {
+      content: "⏺";
+      font-size: 0.45rem;
+      color: #779f77;
+      opacity: 0.8;
+      transform: translateY(1px);
+    }
+
+    /* 脚注 */
+    .colophon {
+      margin-top: 2.2rem;
+      text-align: right;
+      font-size: 0.68rem;
+      color: #a8bea8;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .colophon:hover {
+      color: #7d9a7d;
+    }
+
+    /* 移动端 */
+    @media (max-width: 480px) {
+      .card {
+        padding: 2.4rem 1.8rem 2rem 1.8rem;
+      }
+      .domain-name {
+        font-size: 2.2rem;
+      }
+      .notice-text {
+        font-size: 1.04rem;
+      }
+      .meta-grid {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    ::selection {
+      background: #dbe8db;
+      color: #1a3a1a;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- 第一行：指示灯 + 系统在线 -->
+    <div class="status-line">
+      <span class="dot"></span>
+      <span>系统在线 · 域名指向有效</span>
+    </div>
+
+    <!-- 第二行：动态显示当前域名 (完全一样的格式，无点) -->
+    <div class="status-line" id="domainStatusLine" style="margin-bottom: 1.2rem;">
+      <!-- 此处使用透明的伪占位符，保持对齐；将由js填充真实域名 -->
+      <span style="display: inline-block; width: 10px;"></span> <!-- 占位与绿点同宽 -->
+      <span id="currentDomainText">读取域名中…</span>
+    </div>
+
+    <!-- 主域名 (作为视觉焦点保留，但为了避免重复，可以调小一点，也可保留，随你喜欢。我们保留它作为大号展示，但为了“低调”，你也可以删掉。但建议保留增加层次) -->
+    <div class="domain-name" id="dynamicDomain">loading…</div>
+
+    <hr class="separator" />
+
+    <!-- 公告核心 -->
+    <div class="notice-block">
+      <div class="notice-head">📋 公告 / bulletin</div>
+      <div class="notice-text">
+        此域名解析正常，服务器响应正常，<br/>目前处于建设与规划阶段，更多内容将在后续逐步开放，
+感谢你的访问与关注。
+      </div>
+      <div class="notice-sub">
+        This domain has been successfully resolved, and the server is operating normally.
+        The site is currently in the construction and planning phase, with additional content to be rolled out gradually in the future. Thank you for your visit and continued attention.
+      </div>
+    </div>
+
+    <!-- 元信息网格 -->
+    <div class="meta-grid">
+      <span class="meta-item">状态：活跃</span>
+      <span class="meta-item">环境：就绪</span>
+      <span class="meta-item">响应：200</span>
+      <span class="meta-item">监测：实时</span>
+    </div>
+
+    <!-- 脚注 -->
+    <div class="colophon">
+      ⚲ 贵州希田智慧农业科技有限公司<br/>Guizhou Seetion Smart Agriculture Technology Co., Ltd.
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // 获取当前主机名
+      let host = window.location.hostname;
+      // 处理本地文件或空值
+      if (!host || host === '' || (host === 'localhost' && window.location.protocol === 'file:')) {
+        host = 'current.domain';   // 优雅降级
+      }
+      // 去掉 www. 前缀（如果有）
+      if (host.startsWith('www.')) {
+        host = host.substring(4);
+      }
+
+      // 1. 更新大号域名显示
+      const domainElement = document.getElementById('dynamicDomain');
+      if (domainElement) {
+        domainElement.textContent = host;
+      }
+
+      // 2. 更新第二行状态栏的当前域名 (格式“当前域名为xxx”)
+      const currentDomainSpan = document.getElementById('currentDomainText');
+      if (currentDomainSpan) {
+        currentDomainSpan.textContent = `当前域名为 ${host}`;
+      }
+
+      // 注：第二行整体使用了 .status-line 样式，与第一行完全一致
+      // 为了对齐左侧的占位空格（模拟绿点宽度），我们已加了一个透明的10px宽的span。
+      // 如果不希望有占位，也可以删掉那个span并调整文字。但保留它能使两行视觉上完全对齐。
+    })();
+  </script>
+
+  <!-- 无痕注释 -->
+  <!-- 绿色主题 · 高级且低调 · 域名动态显示 -->
+</body>
+</html>
